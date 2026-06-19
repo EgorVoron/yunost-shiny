@@ -1,5 +1,3 @@
-# app.R - финальная версия
-
 library(shiny)
 library(shinybusy)
 library(dplyr)
