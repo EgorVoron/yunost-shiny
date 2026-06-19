@@ -7,6 +7,7 @@ library(DT)
 library(igraph)
 library(ggraph)
 library(wordcloud2)
+library(bslib)
 
 # ===== ЗАГРУЗКА ДАННЫХ ПО УМОЛЧАНИЮ =====
 load_default_data <- function() {
@@ -382,6 +383,13 @@ build_fast_graph <- function(data, min_publications = 11, min_weight = 2) {
 
 # ===== UI =====
 ui <- fluidPage(
+  theme = bs_theme(
+    version = 5,
+    bootswatch = "flatly",
+    primary = "#2c3e50",
+    base_font = font_google("Roboto"),
+    heading_font = font_google("Roboto Slab")
+  ),
   
   titlePanel("Аналитик поэзии журнала Юность"),
   
@@ -395,8 +403,7 @@ ui <- fluidPage(
         column(
           width = 10,
           offset = 1,
-          
-          h2("Аналитик поэзии журнала Юность"),
+          hr(),
           p("Приложение для визуализации и анализа поэтического корпуса журнала «Юность» за 1955-1974 годы."),
           tags$a(
             href = "https://github.com/EgorVoron/yunost-shiny",
